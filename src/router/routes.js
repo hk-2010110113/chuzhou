@@ -2,6 +2,7 @@ const productcapacity = () =>import('@/pages/productcapacity/index')
 const version = () => import('@/pages/version/Version')
 const changerecord = () => import('@/pages/changerecord/ChangeRecord')
 const alert = () => import('@/pages/alert/Alert')
+const recorddetail = () =>import('@/pages/changerecord/components/recorddetail')
 const routes = [
     //产能监控，主页
     {
@@ -32,6 +33,12 @@ const routes = [
         name:'alert',
         component:alert,
         meta:'报警监控'
-    }
+    },
+    {
+        path:'/recorddetail/:id',
+        name:'RecordDetail',
+        component:recorddetail,
+        meta:'变更详情'
+    },
 ]
 export default routes

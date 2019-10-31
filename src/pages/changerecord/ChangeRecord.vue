@@ -1,5 +1,15 @@
 <template>
-  <div>变更</div>
+    <div class="linebody-list">
+      <!-- 线体列表（循环） -->
+      <div class="linebody-info" @click="turnToDetail">
+        <div class="linebody-name">CT101</div>
+        <div class="change-record">查看变更记录>>></div>
+      </div>
+      <div class="linebody-info" @click="turnToDetail">
+        <div class="linebody-name">CT101</div>
+        <div class="change-record">查看变更记录>>></div>
+      </div>
+    </div>
 </template>
 <script>
 import { mapMutations } from "vuex"
@@ -8,11 +18,44 @@ export default {
   activated() {
     this.changeTitle(this.$route.meta);
   },
+  data() {
+    return {
+      params:1
+    }
+  },
   methods: {
     ...mapMutations({
       changeTitle: "increment"
-    })
+    }),
+    turnToDetail(){
+      //调到详情页面
+      this.$router.push({
+        name:'RecordDetail',
+        params:{
+          id:1
+        }
+      })
+    }
   }
 };
 </script>
-<style lang="stylus" scoped></style>
+<style lang="stylus" scoped>
+.linebody-list
+  position absolute
+  top 42px
+  left 0
+  right 0
+  bottom 43px
+  padding 0 10px
+  .linebody-info
+    display flex
+    height 48px
+    line-height 48px
+    border-bottom 1px solid #ddd
+    // margin-bottom 10px
+    .linebody-name
+      width 40%
+    .change-record
+      flex 1
+      text-align right
+</style>
