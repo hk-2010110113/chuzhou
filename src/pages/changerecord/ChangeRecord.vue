@@ -1,11 +1,11 @@
 <template>
     <div class="linebody-list">
       <!-- 线体列表（循环） -->
-      <div class="linebody-info" @click="turnToDetail">
+      <div class="linebody-info" @click="jumpToDetail">
         <div class="linebody-name">CT101</div>
         <div class="change-record">查看变更记录>>></div>
       </div>
-      <div class="linebody-info" @click="turnToDetail">
+      <div class="linebody-info" @click="jumpToDetail">
         <div class="linebody-name">CT101</div>
         <div class="change-record">查看变更记录>>></div>
       </div>
@@ -16,19 +16,14 @@ import { mapMutations } from "vuex"
 export default {
   name: "ChangeRecord",
   activated() {
-    this.changeTitle(this.$route.meta);
-  },
-  data() {
-    return {
-      params:1
-    }
+    this.changeTitle(this.$route.meta)
   },
   methods: {
     ...mapMutations({
       changeTitle: "increment"
     }),
-    turnToDetail(){
-      //调到详情页面
+    jumpToDetail(){
+      //调到展示页面  
       this.$router.push({
         name:'RecordDetail',
         params:{

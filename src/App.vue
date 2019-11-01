@@ -3,12 +3,11 @@
     <!-- 下面是页面的头部 -->
     <fixed-head :showicon="showicon" :title="title"></fixed-head>
     <!-- 下面是中间显示区域 -->
-    
-      <keep-alive>
-        <router-view></router-view>
-      </keep-alive>
+    <keep-alive>
+      <router-view></router-view>
+    </keep-alive>
     <!-- 下面是页面底部的tabs -->
-    <bottom-tabs></bottom-tabs>
+    <bottom-tabs :class="{leave:ifLeave}"></bottom-tabs>
   </div>
 </template>
 
@@ -26,32 +25,29 @@ export default {
     BottomTabs,
     FixedHead
   },
-  data() {
-    return {
-      showicon: false
-    };
-  },
   computed: {
     title() {
       return this.$store.state.title;
+    },
+    ifLeave(){
+      return this.$store.state.ifBottomTabShow
+    },
+    showicon(){
+       return this.$store.state.showicon
     }
   }
 };
 </script>
-
-<style>
-#app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
-}
-/* .content-container {
-  position: absolute;
-  top: 42px;
-  bottom: 43px;
-  left: 0;
-  right: 0;
-  padding: 0 10px;
-} */
+<style lang="stylus" scoped>
+#app
+  font-family "Avenir", Helvetica, Arial, sans-serif
+  -webkit-font-smoothing antialiased
+  -moz-osx-font-smoothing grayscale
+  color #2c3e50
+  .leave
+    transform translateY(100%);
+    height 0
+    overflow hidden
+    border none
 </style>
+

@@ -4,11 +4,19 @@ Vue.use(Vuex)
 export default () => {
     return new Vuex.Store({
         state: {
-            title: '产能监控'
+            title: '产能监控',
+            ifBottomTabShow: false,
+            showicon:false
         },
         mutations: {
-            increment(state,title) {
+            increment(state, title) {
                 state.title = title
+            },
+            changeBarStatus(state){
+                state.ifBottomTabShow = !state.ifBottomTabShow
+            },
+            changeIconStatus(state){
+                state.showicon = !state.showicon
             }
         }
     })

@@ -39,6 +39,6 @@ const routes = [
         name:'RecordDetail',
         component:recorddetail,
         meta:'变更详情'
-    },
+    }
 ]
 export default routes

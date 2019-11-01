@@ -8,7 +8,7 @@
        </template>
    </head-item> -->
    <div class="title-container">
-       <div v-show="showicon" class="back-icon">gfg</div>
+       <div v-show="showicon" class="back-icon" @click="back">返回</div>
        <div class="title">{{title}}</div>
    </div>
 </template>
@@ -19,7 +19,12 @@ export default {
     components:{
         HeadItem
     },
-    props:['showicon','title']
+    props:['showicon','title'],
+    methods:{
+        back(){
+            this.$router.go(-1)
+        }
+    }
 }
 </script>
 <style lang="stylus" scoped>
