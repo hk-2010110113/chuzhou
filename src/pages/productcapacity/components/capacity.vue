@@ -20,7 +20,7 @@
 </template>
 <script>
 export default {
-    
+    name:'Capacity'
 }
 </script>
 <style lang="stylus" scoped>

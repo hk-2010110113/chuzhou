@@ -13,9 +13,13 @@
             <div>
                 <bar></bar>
             </div>
-            <!-- 线别产能列表 -->
+            <!-- 产能列表 -->
             <div>
                 <line-capacity></line-capacity>
+            </div>
+            <!-- 缺陷列表 -->
+            <div>
+                <defect-list></defect-list>
             </div>
       </div>   
   </div>
@@ -24,7 +28,8 @@
 import timer from './components/timer'
 import capacity from './components/capacity'
 import bar from './components/bar'
-import LineCapacity from './components/linecapacity'
+import LineCapacity from './components/LineCapacity'
+import DefectList from './components/DefectList'
 import BScroll from '@better-scroll/core'
 
 export default {
@@ -37,7 +42,8 @@ export default {
       timer,
       capacity,
       bar,
-      LineCapacity
+      LineCapacity,
+      DefectList
   },
   mounted(){
       this.bs = new BScroll(".wrapper",{

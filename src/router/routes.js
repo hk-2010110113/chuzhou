@@ -1,8 +1,8 @@
-const productcapacity = () =>import('@/pages/productcapacity/index')
+const productcapacity = () =>import('@/pages/productcapacity/ProductCapacity')
 const version = () => import('@/pages/version/Version')
 const changerecord = () => import('@/pages/changerecord/ChangeRecord')
 const alert = () => import('@/pages/alert/Alert')
-const recorddetail = () =>import('@/pages/changerecord/components/recorddetail')
+const recorddetail = () =>import('@/pages/changerecord/components/RecordDetail')
 const routes = [
     //产能监控，主页
     {

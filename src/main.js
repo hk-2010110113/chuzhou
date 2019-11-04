@@ -8,6 +8,7 @@ import stores from './store/index'
 //引入vant
 import Vant from 'vant';
 import 'vant/lib/index.css';
+import '@/assets/style/global.styl'
 Vue.use(Vant);
 
 const router = routers()
