@@ -4,26 +4,8 @@
     </div>
 </template>
 <script>
-import { mapMutations } from "vuex"
 export default {
     name:'RecordDetail',
-    activated() {
-        this.changeTitle(this.$route.meta);
-        this.changeBarStatus()
-        this.changeIconStatus()
-    },
-    methods:{
-        ...mapMutations({
-            changeTitle: "increment"
-        }),
-        ...mapMutations(['changeBarStatus']),
-        ...mapMutations(['changeIconStatus']),
-    },
-    beforeRouteLeave (to, from, next){
-        this.changeBarStatus()
-        this.changeIconStatus()
-        next()
-    }
 }
 </script>
 <style lang="stylus" scoped>

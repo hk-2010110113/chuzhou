@@ -25,8 +25,6 @@ import timer from './components/timer'
 import capacity from './components/capacity'
 import bar from './components/bar'
 import LineCapacity from './components/linecapacity'
-import { mapMutations } from "vuex"
-
 import BScroll from '@better-scroll/core'
 
 export default {
@@ -48,12 +46,8 @@ export default {
       })
   },
   activated() {
-    this.changeTitle(this.$route.meta);
   },
   methods: {
-    ...mapMutations({
-      changeTitle: "increment"
-    }),
     // confirmTime(){
     //     this.show = false
     //     this.selectedEnterTime =

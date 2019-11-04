@@ -15,6 +15,20 @@ const store = stores()
 
 Vue.config.productionTip = false
 
+router.beforeEach((to,from,next)=>{
+  store.commit('increment',to.meta)
+  if(to.meta == '变更详情'){
+    //隐藏下面的tabs，显示返回按钮
+    store.commit('changeBarStatus')
+    store.commit('changeIconStatus')
+  }else{
+    //显示下面的tabs,隐藏返回按钮
+    store.commit('showBottomTabShow')
+    store.commit('showIcon')
+  }
+  next()
+})
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

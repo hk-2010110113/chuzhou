@@ -17,6 +17,12 @@ export default () => {
             },
             changeIconStatus(state){
                 state.showicon = !state.showicon
+            },
+            showBottomTabShow(state){
+                state.ifBottomTabShow = false
+            },
+            showIcon(state){
+                state.showicon = false
             }
         }
     })

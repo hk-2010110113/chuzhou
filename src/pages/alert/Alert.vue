@@ -2,16 +2,8 @@
   <div>报警</div>
 </template>
 <script>
-import { mapMutations } from "vuex"
 export default {
-  activated() {
-    this.changeTitle(this.$route.meta)
-  },
-  methods: {
-    ...mapMutations({
-      changeTitle: "increment"
-    })
-  }
+  name:'Alert'
 };
 </script>
 <style lang="stylus" scoped></style>

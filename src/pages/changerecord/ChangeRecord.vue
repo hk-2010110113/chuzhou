@@ -12,16 +12,9 @@
     </div>
 </template>
 <script>
-import { mapMutations } from "vuex"
 export default {
   name: "ChangeRecord",
-  activated() {
-    this.changeTitle(this.$route.meta)
-  },
   methods: {
-    ...mapMutations({
-      changeTitle: "increment"
-    }),
     jumpToDetail(){
       //调到展示页面  
       this.$router.push({
