@@ -27,7 +27,7 @@ export default {
   },
   computed: {
     title() {
-      return this.$store.state.title;
+      return this.$store.state.title
     },
     ifLeave(){
       return this.$store.state.ifBottomTabShow
