@@ -7,17 +7,19 @@
         </div>
         <!-- 线体上软体的数据 -->
         <div>
-
+          <software-detail></software-detail>
         </div>
       </div>
     </div>
 </template>
 <script>
 import choose from './components/Choose'
+import SoftwareDetail from './components/SoftwareDetail'
 export default {
   name:'Version',
   components:{
-    choose
+    choose,
+    SoftwareDetail
   }
 };
 </script>

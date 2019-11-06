@@ -1,10 +1,10 @@
 <template>
     <div>
-        <h4>缺陷列表</h4>
+        <h4 class="item-title">缺陷列表</h4>
         <!-- 循环组件 -->
         <item-comp v-for="(list,index) in lists" :key="index">
             <template v-slot:text>
-                <p>{{list.lineName}}</p>
+                <p class="vertical-center">{{list.lineName}}</p>
             </template>
             <template v-slot:detail>                             
                 <p><span>缺陷:</span><span></span></p>

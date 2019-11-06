@@ -9,6 +9,7 @@ import stores from './store/index'
 import Vant from 'vant';
 import 'vant/lib/index.css';
 import '@/assets/style/global.styl'
+import 'normalize.css'
 Vue.use(Vant);
 const router = routers()
 const store = stores()

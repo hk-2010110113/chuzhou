@@ -16,6 +16,9 @@ export default {
 <style lang="stylus" scoped>
 .container
     display flex 
+    padding-bottom 10px
+    border-bottom 1px solid #eee
+    margin: 10px 0;
     font-size 16px
     .left-container
         width 35%

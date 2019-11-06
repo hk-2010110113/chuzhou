@@ -1,11 +1,39 @@
 <template>
-    <div class="detail-content">
-        线体详情页面
+    <div class="detail-content wrapper">
+        <div class="content">
+            <!-- 选择部分 -->
+            <div>
+                <select-software></select-software>
+            </div>
+            <!-- 软件说明部分 -->
+            <div>
+                <software-detail></software-detail>
+                <software-detail></software-detail>
+            </div>
+        </div>
     </div>
-</template>
+</template> 
 <script>
+import SelectSoftware from './SelectSoftware'
+import SoftwareDetail from './SoftwareDetail'
+import BScroll from '@better-scroll/core'
 export default {
     name:'RecordDetail',
+    data() {
+        return {
+            bs:null
+        }
+    },
+    mounted(){
+        this.bs = new BScroll(".wrapper",{    
+            click:true,
+            taps: true
+        })
+    },
+    components:{
+        SelectSoftware,
+        SoftwareDetail
+    }
 }
 </script>
 <style lang="stylus" scoped>
@@ -16,5 +44,7 @@ export default {
     right 0
     bottom 0
     padding 0 10px
-    background pink
+    .content
+        box-sizing border-box
+        padding-top 10px
 </style>
