@@ -14,31 +14,51 @@ const routes = [
         path:'/productcapacity',
         name:'productcapacity',
         component:productcapacity,
-        meta:'产能监控'
+        meta:{
+            title:'产能监控',
+            x:0,
+            y:0
+        }
     },
     {
         path:'/version',
         name:'version',
         component:version,
-        meta:'软件版本'
+        meta:{
+            title:"软件版本",
+            x:0,
+            y:0
+        }
     },
     {
         path:'/changerecord',
         name:'changerecord',
         component:changerecord,
-        meta:'线体列表'
+        meta:{
+            title:"线体列表",
+            x:0,
+            y:0
+        }
     },
     {
         path:'/alert',
         name:'alert',
         component:alert,
-        meta:'报警监控'
+        meta:{
+            title:"报警监控",
+            x:0,
+            y:0
+        }
     },
     {
         path:'/recorddetail/:id',
         name:'RecordDetail',
         component:recorddetail,
-        meta:'变更详情'
+        meta:{
+            title:"变更详情",
+            x:0,
+            y:0
+        }
     }
 ]
 export default routes

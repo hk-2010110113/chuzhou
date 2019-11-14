@@ -21,6 +21,12 @@
             <div>
                 <defect-list></defect-list>
             </div>
+
+            <!-- 下面是测试代码 -->
+             <div>
+                <defect-list></defect-list>
+            </div>
+            <!-- 上面是测试代码 -->
       </div>   
   </div>
 </template>
@@ -48,10 +54,14 @@ export default {
   mounted(){
       this.bs = new BScroll(".wrapper",{
           click:true,
-          taps: true
-      })
+          taps: true,
+      });
+    //   this.bs.on('scrollEnd',(y)=>{
+    //       this.$route.meta.y = pos.y
+    //   })
   },
-  activated() {
+  activated() { 
+      this.bs.scrollTo(0,this.$route.meta.y,500)
   },
   methods: {
     // confirmTime(){
