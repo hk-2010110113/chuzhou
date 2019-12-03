@@ -11,48 +11,82 @@ export default {
           text: "线别产能"
         },
         legend: {
-          data: ["做市", "协议"]
+          data: ["OK量", "NG量","良率"]
         },
         xAxis: [
           {
             type: "category",
-            data: ["1", "2", "3", "4", "5","6","7","8","9","10"], ///xaxisdata x轴：标签（数组）
-            axisLabel: {
-              textStyle: {
-                color: "#222"
-              }
+            data: [
+              "1月",
+              "2月",
+              "3月",
+              "4月",
+              "5月",
+              "6月",
+              "7月",
+              "8月",
+              "9月",
+              "10月",
+              "11月",
+              "12月"
+            ],
+            axisPointer: {
+              type: "shadow"
             }
           }
         ],
         yAxis: [
           {
-            type: "value"
+            type: "value",
+            min: 0,
+            name:"产能",
+            max: 1000,
+            interval: 100,
+            axisLabel: {
+              formatter: "{value}"
+            }
+          },
+          {
+            type: "value",
+            name: "良率",
+            min: 0,
+            max: 100,
+            interval: 10,
+            axisLabel: {
+              formatter: "{value} %"
+            }
           }
         ],
         label: {
-          show: true,         //开启显示
+          show: true, //开启显示
           position: "inside", //在上方显示
           textStyle: {
-            //数值样式
             color: "white",
             fontSize: 16
           }
         },
         series: [
           {
-            name: "做市",
+            name: "OK量",
             type: "bar",
             stack: "总量",
             /*itemStyle : { normal: {label : {show: true, position: 'insideTop',textStyle:{color:'#000'}}}},*/
-            data: [232, 646, 878, 554, 545,344,213,653,543,234] ///serieszs 柱状图图数据（数组）
+            data: [232, 646, 878, 554, 545, 344, 213, 653, 543, 234, 453, 674] ///serieszs 柱状图图数据（数组）
           },
           {
-            name: "协议",
+            name: "NG量",
             type: "bar",
             stack: "总量",
+            /*itemStyle : { normal: {label : {show: true, position: 'insideTop',textStyle:{color:'#000'}}}},*/
+            data: [23, 64, 87, 55, 54, 34, 21, 65, 53, 24, 43, 64] ///serieszs 柱状图图数据（数组）
+          },
+          {
+            name: "良率",
+            type: "line",
+            yAxisIndex: 1,
             //barWidth: 30, //柱图宽度
             /*itemStyle : { normal: {label : {show: true, position: 'insideTop',textStyle:{color:'#000'}}}},*/
-            data: [354, 125, 456, 743, 234,294,344,545,436,346] ////seriesyx 柱状图图数据（数组）
+            data: [75, 39, 66, 83, 97, 91, 94, 99, 78, 84, 68, 42] ////seriesyx 柱状图图数据（数组）
           }
         ]
       }
@@ -70,8 +104,9 @@ export default {
 };
 </script>
 <style lang="stylus" scoped>
-#bar
-  height 300px
-  width 100%
-  margin-top 20px
+#bar {
+  height: 300px;
+  width: 100%;
+  margin-top: 20px;
+}
 </style>

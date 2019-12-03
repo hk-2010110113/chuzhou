@@ -5,15 +5,15 @@
       <span>12425</span>
     </van-col>
     <van-col span="12" class="capacity-item">
-      <span class="label-name">总产能</span>
+      <span class="label-name">OK 量</span>
       <span>12346</span>
     </van-col>
     <van-col span="12" class="capacity-item">
-      <span class="label-name">总产能</span>
+      <span class="label-name">NG 量</span>
       <span>12425</span>
     </van-col>
     <van-col span="12" class="capacity-item">
-      <span class="label-name">总产能</span>
+      <span class="label-name">平均良率</span>
       <span>12346</span>
     </van-col>
   </van-row>

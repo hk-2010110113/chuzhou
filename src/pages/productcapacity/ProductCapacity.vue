@@ -17,13 +17,8 @@
             <div>
                 <line-capacity></line-capacity>
             </div>
-            <!-- 缺陷列表 -->
+            <!-- 缺陷信息 -->
             <div>
-                <defect-list></defect-list>
-            </div>
-
-            <!-- 下面是测试代码 -->
-             <div>
                 <defect-list></defect-list>
             </div>
             <!-- 上面是测试代码 -->

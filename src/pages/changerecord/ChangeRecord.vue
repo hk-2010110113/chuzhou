@@ -138,7 +138,7 @@ export default {
         params: {
           id: 1
         }
-      });
+      })
     }
   },
   activated() {

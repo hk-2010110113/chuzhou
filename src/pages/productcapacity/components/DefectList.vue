@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h4 class="item-title">缺陷列表</h4>
+        <h4 class="item-title">缺陷信息</h4>
         <!-- 循环组件 -->
         <item-comp v-for="(list,index) in lists" :key="index">
             <template v-slot:text>

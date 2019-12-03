@@ -8,10 +8,9 @@
             </template>
             <template v-slot:detail>                             
                 <p><span>产能</span><span></span></p>
-                <p><span>YO&AO:</span><span></span></p>
-                <p><span>GA:</span><span></span></p>
-                <p><span>YO&AO Rate:</span><span></span></p>
-                <p><span>T.T:</span><span></span></p>         
+                <p><span>OK量:</span><span></span></p>
+                <p><span>NG量:</span><span></span></p>
+                <p><span>良率:</span><span></span></p>       
             </template>
         </item-comp> 
     </div>
