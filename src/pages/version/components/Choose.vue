@@ -26,14 +26,22 @@ export default {
             // show:false,
             value: 0,
             option: [
-                { text: 'EDC', value: 0 },
-                { text: 'PPC', value: 1 },
-                { text: 'IPC', value: 2 },
-                { text: 'CPC', value: 3 }
-            ],
-            // selectedItem:'item',
-            // switch1:false,
-            // switch2:false
+                { text: 'EDC V1.1.1.0', value: 0 },
+                { text: 'PPC V1.1.1.0', value: 1 },
+                { text: 'IPC V1.1.1.0', value: 2 },
+                { text: 'CPC V1.1.1.0', value: 3 },
+                { text: 'EDC V1.1.1.0', value: 4 },
+                { text: 'PPC V1.1.1.0', value: 5 },
+                { text: 'IPC V1.1.1.0', value: 6 },
+                { text: 'CPC V1.1.1.0', value: 7 },
+                { text: 'EDC V1.1.1.0', value: 8 },
+                { text: 'PPC V1.1.1.0', value: 9 },
+                { text: 'IPC V1.1.1.0', value: 10 },
+                { text: 'CPC V1.1.1.0', value: 11 },
+                { text: 'EDC V1.1.1.0', value: 12 },
+                { text: 'PPC V1.1.1.0', value: 13 },
+                { text: 'IPC V1.1.1.0', value: 14 },
+            ]
         }
     },
     methods:{

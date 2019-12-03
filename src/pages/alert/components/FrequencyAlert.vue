@@ -8,7 +8,8 @@
             </template>
             <template v-slot:detail>                             
                 <p><span>吸真空异常次数:</span><span></span></p>
-                <p><span>DCR异常次数:</span><span></span></p>                    
+                <p><span>DCR异常次数:</span><span></span></p> 
+                <p><span>CDF异常次数:</span><span></span></p>                    
             </template>
         </item-comp> 
     </div>

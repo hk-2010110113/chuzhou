@@ -24,14 +24,14 @@ export default {
         return {
             lists:[
                 {
-                    lineName:'line1',
+                    lineName:'Viewer01',
                     desc:{
                         count:10,
                         badPercent:'3%'
                     }
                 },
                 {
-                    lineName:'line2',
+                    lineName:'Viewer02',
                     desc:{
                         count:11,
                         badPercent:'2.5%'
