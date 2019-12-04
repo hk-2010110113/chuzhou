@@ -10,8 +10,27 @@ export default {
         title: {
           text: "线别产能"
         },
+        tooltip: {
+          trigger: "axis"
+        },
+        dataZoom:[
+          {
+            type:'slider',
+            yAxisIndex:[0,1],
+            filterMode: 'empty'
+            // startValue:0,
+            // endValue:4
+          },
+          // {
+          //   type:'slider',
+          //   yAxisIndex:[0,1],
+          //   startValue:0,
+          //   endValue:4
+          // }
+        ],
         legend: {
-          data: ["OK量", "NG量","良率"]
+          data: ["OK量", "NG量", "良率"],
+          left: "right"
         },
         xAxis: [
           {
@@ -28,7 +47,11 @@ export default {
               "9月",
               "10月",
               "11月",
-              "12月"
+              "12月",
+              "13月",
+              "14月",
+              "15月",
+              "16月"
             ],
             axisPointer: {
               type: "shadow"
@@ -39,7 +62,7 @@ export default {
           {
             type: "value",
             min: 0,
-            name:"产能",
+            name: "产能",
             max: 1000,
             interval: 100,
             axisLabel: {
@@ -69,24 +92,77 @@ export default {
           {
             name: "OK量",
             type: "bar",
-            stack: "总量",
-            /*itemStyle : { normal: {label : {show: true, position: 'insideTop',textStyle:{color:'#000'}}}},*/
-            data: [232, 646, 878, 554, 545, 344, 213, 653, 543, 234, 453, 674] ///serieszs 柱状图图数据（数组）
+            stack: "1",    //表示要堆叠显示
+            // yAxisIndex: 0,
+            // barWidth:40,
+            barGap:'50%',
+            data: [
+              232,
+              646,
+              878,
+              554,
+              545,
+              344,
+              213,
+              653,
+              543,
+              234,
+              453,
+              674,
+              543,
+              234,
+              453,
+              674
+            ]
           },
           {
             name: "NG量",
             type: "bar",
-            stack: "总量",
-            /*itemStyle : { normal: {label : {show: true, position: 'insideTop',textStyle:{color:'#000'}}}},*/
-            data: [23, 64, 87, 55, 54, 34, 21, 65, 53, 24, 43, 64] ///serieszs 柱状图图数据（数组）
+            stack: "1",    //表示要堆叠显示
+            yAxisIndex: 0,
+            // barWidth:40,
+            // barGap:'50%',
+            data: [
+              23,
+              64,
+              87,
+              55,
+              54,
+              34,
+              21,
+              65,
+              53,
+              24,
+              43,
+              64,
+              55,
+              54,
+              34,
+              21
+            ] 
           },
           {
             name: "良率",
             type: "line",
             yAxisIndex: 1,
-            //barWidth: 30, //柱图宽度
-            /*itemStyle : { normal: {label : {show: true, position: 'insideTop',textStyle:{color:'#000'}}}},*/
-            data: [75, 39, 66, 83, 97, 91, 94, 99, 78, 84, 68, 42] ////seriesyx 柱状图图数据（数组）
+            data: [
+              75,
+              39,
+              66,
+              83,
+              97,
+              91,
+              94,
+              99,
+              78,
+              84,
+              68,
+              42,
+              66,
+              83,
+              97,
+              91
+            ] 
           }
         ]
       }

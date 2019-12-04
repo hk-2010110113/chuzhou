@@ -88,8 +88,8 @@ export default {
   .search-button
     height 34px
     line-height 34px
-    width 15%
-    margin-left 5%
+    width 18%
+    margin-left 4%
     display: inline-block;
     border-radius: 999px;
     box-sizing: border-box;
