@@ -61,10 +61,10 @@ export default {
         yAxis: [
           {
             type: "value",
-            min: 0,
             name: "产能",
-            max: 1000,
-            interval: 100,
+            // min: 0,         //最小值
+            // max: 1000,      //最大值
+            // interval: 100,  //单位长度
             axisLabel: {
               formatter: "{value}"
             }
@@ -72,9 +72,7 @@ export default {
           {
             type: "value",
             name: "良率",
-            min: 0,
             max: 100,
-            interval: 10,
             axisLabel: {
               formatter: "{value} %"
             }
@@ -93,9 +91,9 @@ export default {
             name: "OK量",
             type: "bar",
             stack: "1",    //表示要堆叠显示
-            // yAxisIndex: 0,
+            yAxisIndex: 0,
             // barWidth:40,
-            barGap:'50%',
+            // barGap:'50%',
             data: [
               232,
               646,
@@ -120,8 +118,6 @@ export default {
             type: "bar",
             stack: "1",    //表示要堆叠显示
             yAxisIndex: 0,
-            // barWidth:40,
-            // barGap:'50%',
             data: [
               23,
               64,
