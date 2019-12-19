@@ -18,8 +18,6 @@ export default {
             type:'slider',
             yAxisIndex:[0,1],
             filterMode: 'empty'
-            // startValue:0,
-            // endValue:4
           },
           // {
           //   type:'slider',
@@ -72,7 +70,7 @@ export default {
           {
             type: "value",
             name: "良率",
-            max: 100,
+            //max: 100,
             axisLabel: {
               formatter: "{value} %"
             }
@@ -165,7 +163,7 @@ export default {
     };
   },
   mounted() {
-    this.showChart();
+    this.showChart(); 
   },
   methods: {
     showChart() {

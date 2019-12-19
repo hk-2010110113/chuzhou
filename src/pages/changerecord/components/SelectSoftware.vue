@@ -1,7 +1,7 @@
 <template>
     <div class="select-box">
         <van-dropdown-menu class="select">
-            <van-dropdown-item class="bgcolor" v-model="value" :options="option" />
+            <van-dropdown-item class="bgcolor" @change="selected" v-model="value" :options="option" />
         </van-dropdown-menu>
     </div>
 </template>
@@ -10,14 +10,19 @@ export default {
     name:'SelectSoftware',
     data() {
         return {
-            value: 0,
+            value: 'ALL',
             option: [
-                { text: 'ALL', value: 0 },
-                { text: 'EDC', value: 1 },
-                { text: 'PPC', value: 2 },
-                { text: 'IPC', value: 3 },
-                { text: 'CPC', value: 4 }
+                { text: 'ALL', value: 'ALL' },
+                { text: 'EDC', value: 'EDC' },
+                { text: 'PPC', value: 'PPC' },
+                { text: 'IPC', value: 'IPC' },
+                { text: 'CPC', value: 'CPC' }
             ]
+        }
+    },
+    methods:{
+        selected(e){
+            this.$emit('selectedSoft',e)
         }
     }
 }

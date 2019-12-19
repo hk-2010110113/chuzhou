@@ -1,7 +1,7 @@
 const productcapacity = () =>import('@/pages/productcapacity/ProductCapacity')
 const version = () => import('@/pages/version/Version')
 const changerecord = () => import('@/pages/changerecord/ChangeRecord')
-const alert = () => import('@/pages/alert/Alert')
+const alarm = () => import('@/pages/alarm/Alarm')
 const recorddetail = () =>import('@/pages/changerecord/components/RecordDetail')
 const routes = [
     //产能监控，主页
@@ -41,9 +41,9 @@ const routes = [
         }
     },
     {
-        path:'/alert',
-        name:'alert',
-        component:alert,
+        path:'/alarm',
+        name:'alarm',
+        component:alarm,
         meta:{
             title:"报警监控",
             x:0,

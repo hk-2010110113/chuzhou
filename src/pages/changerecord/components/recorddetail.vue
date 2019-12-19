@@ -3,12 +3,11 @@
         <div class="content">
             <!-- 选择部分 -->
             <div>
-                <select-software></select-software>
+                <select-software @selectedSoft = 'getSelectedSoftWare'></select-software>
             </div>
             <!-- 软件说明部分 -->
             <div>
-                <software-detail></software-detail>
-                <software-detail></software-detail>
+                <software-detail :currentSoft='currentSoft'></software-detail>
             </div>
         </div>
     </div>
@@ -21,7 +20,8 @@ export default {
     name:'RecordDetail',
     data() {
         return {
-            bs:null
+            bs:null,
+            currentSoft:'ALL'
         }
     },
     mounted(){
@@ -33,6 +33,11 @@ export default {
     components:{
         SelectSoftware,
         SoftwareDetail
+    },
+    methods:{
+        getSelectedSoftWare(e){
+            this.currentSoft = e
+        }
     }
 }
 </script>

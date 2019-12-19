@@ -20,8 +20,11 @@
             <!-- 缺陷信息 -->
             <div>
                 <defect-list></defect-list>
+            </div>          
+            <!-- 线体缺陷复现率Top 10 -->
+            <div>
+                <defect-top></defect-top>
             </div>
-            <!-- 上面是测试代码 -->
       </div>   
   </div>
 </template>
@@ -31,8 +34,8 @@ import capacity from './components/capacity'
 import bar from './components/bar'
 import LineCapacity from './components/LineCapacity'
 import DefectList from './components/DefectList'
+import DefectTop from './components/DefectTop'
 import BScroll from '@better-scroll/core'
-
 export default {
   data() {
     return {
@@ -44,7 +47,8 @@ export default {
       capacity,
       bar,
       LineCapacity,
-      DefectList
+      DefectList,
+      DefectTop
   },
   mounted(){
       this.bs = new BScroll(".wrapper",{
