@@ -1,11 +1,6 @@
 const API = "http://192.168.12.156:8089";
 export default {
-  recommend: `${API}/zhihu/recommend`,
-  select: `${API}/zhihu/hot-select`,
-  hostList: `${API}/zhihu/hot-list`,
-  hostListItem: name => `${API}/zhihu/hot-lists/${name}`,
-  newsSpecialsList: `${API}/zhihu/news_specials/list`,
-  zhuanlanCard: `${API}/zhihu/zhuanlan-card`,
+  // hostListItem: name => `${API}/zhihu/hot-lists/${name}`,
 
   // 获得产能统计页面的统计数据
   getTotalNum:`${API}/api/BigData/GetTotalNum`,
