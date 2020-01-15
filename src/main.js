@@ -10,7 +10,7 @@ import stores from './store/index'
 import Vant from 'vant';
 import 'vant/lib/index.css';
 import '@/assets/style/global.styl'
-import 'normalize.css'
+//import 'normalize.css'
 
 Vue.use(Vant);
 const router = routers()
@@ -18,6 +18,8 @@ const store = stores()
 
 Vue.config.productionTip = false
 
+// 首先判断有没有登陆过，没有则要登陆，
+// 登陆过就调到主页
 router.beforeEach((to,from,next)=>{
   store.commit('increment',to.meta.title)
   if(to.meta.title == '变更详情'){

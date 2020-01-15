@@ -1,13 +1,13 @@
 <template>
     <div class="content-container wrap">
-      <div class="content">
+      <div class="contents">
         <!-- 下拉选择框 -->
-        <div>
-          <choose></choose>
+        <div class="select-container">
+          <choose :softwareAndVersion='softwareAndVersion' @changeSoftware='getlinedefectInfo'></choose>
         </div>
         <!-- 线体上软体的数据 -->
         <div>
-          <software-detail></software-detail>
+          <software-detail :linedefectInfo='linedefectInfo'></software-detail>
         </div>
       </div>
     </div>
@@ -15,11 +15,37 @@
 <script>
 import choose from './components/Choose'
 import SoftwareDetail from './components/SoftwareDetail'
+import Server from '@/http/request'
 export default {
   name:'Version',
+  mounted(){
+    this.getSoftwareAndVersion()
+  },
+  data(){
+    return{
+      softwareAndVersion:[],
+      linedefectInfo:[]
+    }
+  },
   components:{
     choose,
     SoftwareDetail
+  },
+  methods:{
+    getSoftwareAndVersion(){
+      Server.GetSoftWareListWithTrueVersion().then(data=>{
+        this.softwareAndVersion = data.results
+        //初始化时请求使用第一个软件的线体信息
+        this.getlinedefectInfo(this.softwareAndVersion[0].SOFTWAREID)
+      })
+    },
+    getlinedefectInfo(id){
+      Server.GetLinePcSoftwareList({
+        softwareID:id
+      }).then(data=>{
+        this.linedefectInfo = data.results
+      })
+    }
   }
 };
 </script>
@@ -31,7 +57,11 @@ export default {
   left 0
   right 0
   padding 0 10px
-  .content
+  .contents
     box-sizing border-box
-    padding-top 10px
+    .select-container
+      padding-top 10px
+      z-index 1
+      position relative
+      background white
 </style>

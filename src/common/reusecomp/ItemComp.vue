@@ -25,5 +25,5 @@ export default {
     .right-container
         flex 1
         line-height 24px
-        padding-left 2em
+        padding-left 1em
 </style>

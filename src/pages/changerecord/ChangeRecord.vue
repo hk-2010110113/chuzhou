@@ -3,112 +3,8 @@
     <div class="content">
       <!-- <div class="linebody-list"> -->
         <!-- 线体列表（循环） -->
-        <div class="linebody-info" @click="jumpToDetail">
-          <div class="linebody-name">CT101</div>
-          <div class="change-record">查看变更记录>>></div>
-        </div>
-        <div class="linebody-info" @click="jumpToDetail">
-          <div class="linebody-name">CT102</div>
-          <div class="change-record">查看变更记录>>></div>
-        </div>
-
-        <div class="linebody-info" @click="jumpToDetail">
-          <div class="linebody-name">CT103</div>
-          <div class="change-record">查看变更记录>>></div>
-        </div>
-
-        <div class="linebody-info" @click="jumpToDetail">
-          <div class="linebody-name">CT104</div>
-          <div class="change-record">查看变更记录>>></div>
-        </div>
-
-        <div class="linebody-info" @click="jumpToDetail">
-          <div class="linebody-name">CT105</div>
-          <div class="change-record">查看变更记录>>></div>
-        </div>
-
-        <div class="linebody-info" @click="jumpToDetail">
-          <div class="linebody-name">CT106</div>
-          <div class="change-record">查看变更记录>>></div>
-        </div>
-
-        <div class="linebody-info" @click="jumpToDetail">
-          <div class="linebody-name">CT107</div>
-          <div class="change-record">查看变更记录>>></div>
-        </div>
-
-        <div class="linebody-info" @click="jumpToDetail">
-          <div class="linebody-name">CT108</div>
-          <div class="change-record">查看变更记录>>></div>
-        </div>
-
-        <div class="linebody-info" @click="jumpToDetail">
-          <div class="linebody-name">CT109</div>
-          <div class="change-record">查看变更记录>>></div>
-        </div>
-
-        <div class="linebody-info" @click="jumpToDetail">
-          <div class="linebody-name">CT110</div>
-          <div class="change-record">查看变更记录>>></div>
-        </div>
-
-        <div class="linebody-info" @click="jumpToDetail">
-          <div class="linebody-name">CT111</div>
-          <div class="change-record">查看变更记录>>></div>
-        </div>
-
-        <div class="linebody-info" @click="jumpToDetail">
-          <div class="linebody-name">CT112</div>
-          <div class="change-record">查看变更记录>>></div>
-        </div>
-
-        <div class="linebody-info" @click="jumpToDetail">
-          <div class="linebody-name">CT113</div>
-          <div class="change-record">查看变更记录>>></div>
-        </div>
-
-        <div class="linebody-info" @click="jumpToDetail">
-          <div class="linebody-name">CT114</div>
-          <div class="change-record">查看变更记录>>></div>
-        </div>
-
-        <div class="linebody-info" @click="jumpToDetail">
-          <div class="linebody-name">CT115</div>
-          <div class="change-record">查看变更记录>>></div>
-        </div>
-
-        <div class="linebody-info" @click="jumpToDetail">
-          <div class="linebody-name">CT116</div>
-          <div class="change-record">查看变更记录>>></div>
-        </div>
-
-        <div class="linebody-info" @click="jumpToDetail">
-          <div class="linebody-name">CT117</div>
-          <div class="change-record">查看变更记录>>></div>
-        </div>
-
-        <div class="linebody-info" @click="jumpToDetail">
-          <div class="linebody-name">CT118</div>
-          <div class="change-record">查看变更记录>>></div>
-        </div>
-
-        <div class="linebody-info" @click="jumpToDetail">
-          <div class="linebody-name">CT119</div>
-          <div class="change-record">查看变更记录>>></div>
-        </div>
-
-        <div class="linebody-info" @click="jumpToDetail">
-          <div class="linebody-name">CT120</div>
-          <div class="change-record">查看变更记录>>></div>
-        </div>
-
-        <div class="linebody-info" @click="jumpToDetail">
-          <div class="linebody-name">CT121</div>
-          <div class="change-record">查看变更记录>>></div>
-        </div>
-
-        <div class="linebody-info" @click="jumpToDetail">
-          <div class="linebody-name">CT122</div>
+        <div v-for="item in allLineList" :key="item.LineID" class="linebody-info" @click="jumpToDetail(item.LineID)">
+          <div class="linebody-name">{{item.LineName}}</div>
           <div class="change-record">查看变更记录>>></div>
         </div>
       <!-- </div> -->
@@ -116,33 +12,35 @@
   </div>
 </template>
 <script>
-import BScroll from '@better-scroll/core'
+import Server from '@/http/request'
+import global from '@/assets/js/global'
 export default {
   name: "ChangeRecord",
   data() {
     return {
-      bs: null
+      bs: null,
+      allLineList:[],
+      name:'huangkun'
     };
   },
   mounted() {
-    this.bs = new BScroll(".wrapper", {
-      click: true,
-      taps: true
+    Server.GetLineList().then(data =>{
+      this.allLineList = data.results
     })
   },
   methods: {
-    jumpToDetail() {
+    jumpToDetail(lineID) {
       //调到展示页面
       this.$router.push({
-        name: "RecordDetail",
+        name: "RecordDetail",      
         params: {
-          id: 1
+          id: lineID
         }
       })
     }
   },
-  activated() {
-    console.log(1);
+  updated(){
+    this.bs == null? global.Bsscrolls(this,'wrapper'):global.refreshBs(this)
   }
 };
 </script>

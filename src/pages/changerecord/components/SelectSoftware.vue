@@ -1,24 +1,36 @@
 <template>
     <div class="select-box">
         <van-dropdown-menu class="select">
-            <van-dropdown-item class="bgcolor" @change="selected" v-model="value" :options="option" />
+            <van-dropdown-item class="bgcolor" @change="selected" v-model="value" :options="options" />
         </van-dropdown-menu>
     </div>
 </template>
 <script>
 export default {
     name:'SelectSoftware',
+    props:['softwareArr','currentSoft'],
     data() {
         return {
-            value: 'ALL',
-            option: [
-                { text: 'ALL', value: 'ALL' },
-                { text: 'EDC', value: 'EDC' },
-                { text: 'PPC', value: 'PPC' },
-                { text: 'IPC', value: 'IPC' },
-                { text: 'CPC', value: 'CPC' }
-            ]
+            value: this.currentSoft,
         }
+    },
+    watch:{
+        currentSoft(v){
+            this.value = v
+        }
+    },
+    computed:{
+        options(){
+            let arr = []
+            arr.push({ text: 'ALL', value: 'ALL' })
+            for(let i =0;i<this.softwareArr.length;i++){
+                arr.push({
+                    text:this.softwareArr[i],
+                    value:this.softwareArr[i]
+                })
+            }
+            return arr
+        },
     },
     methods:{
         selected(e){

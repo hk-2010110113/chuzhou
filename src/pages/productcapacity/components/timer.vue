@@ -3,7 +3,7 @@
     <div class="start-time" is-link @click="showPopup">{{selectedStartTime}}</div>
     <div class="left connect-text">至</div>
     <div class="start-time" is-link @click="showPopup1">{{selectedEndTime}}</div>
-    <button class="search-button">查询</button>
+    <!-- <button class="search-button">查询</button> -->
     <!-- 开始时间的弹框 -->
     <van-popup v-model="show" position="top" :overlay="true">
       <!-- 日期组件 -->
@@ -35,7 +35,7 @@ export default {
   data() {
     return {
       startTime: new Date(global.formateTime(-7)),  // 默认开始时间,7天前
-      endTime: new Date(),                   // 默认结束时间,今天
+      endTime: new Date(),                          // 默认结束时间,今天
       maxDate: new Date(),
       show: false,
       show1:false,
@@ -46,11 +46,13 @@ export default {
   methods: {
     confirmTime() {
       this.show = false
-      this.selectedStartTime = global.getYearMonthDay(this.startTime)  
+      this.selectedStartTime = global.getYearMonthDay(this.startTime)
+      this.$emit('changeTime',this.selectedStartTime,this.selectedEndTime)  
     },
     confirmTime1(){
       this.show1 = false
       this.selectedEndTime = global.getYearMonthDay(this.endTime) 
+      this.$emit('changeTime',this.selectedStartTime,this.selectedEndTime) 
     },
     cancelTime() {
       this.show = false
@@ -72,8 +74,9 @@ export default {
 .time-component >>> .van-popup--top 
   top: 100px;
 .time-component 
-  .start-time 
-    width: 32%;
+  overflow hidden
+  .start-time
+    width:calc((100% - 44px) / 2)
     height: 32px;
     line-height: 32px;
     border-radius: 10px;

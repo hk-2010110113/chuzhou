@@ -4,6 +4,7 @@
 <script>
 export default {
   name: "Bar",
+  props:['barData'],
   data() {
     return {
       options: {
@@ -15,16 +16,10 @@ export default {
         },
         dataZoom:[
           {
-            type:'slider',
-            yAxisIndex:[0,1],
+            type: 'inside',
+            xAxisIndex: 0,
             filterMode: 'empty'
           },
-          // {
-          //   type:'slider',
-          //   yAxisIndex:[0,1],
-          //   startValue:0,
-          //   endValue:4
-          // }
         ],
         legend: {
           data: ["OK量", "NG量", "良率"],
@@ -33,24 +28,8 @@ export default {
         xAxis: [
           {
             type: "category",
-            data: [
-              "1月",
-              "2月",
-              "3月",
-              "4月",
-              "5月",
-              "6月",
-              "7月",
-              "8月",
-              "9月",
-              "10月",
-              "11月",
-              "12月",
-              "13月",
-              "14月",
-              "15月",
-              "16月"
-            ],
+            // 后端的数据
+            data: [],
             axisPointer: {
               type: "shadow"
             }
@@ -90,93 +69,85 @@ export default {
             type: "bar",
             stack: "1",    //表示要堆叠显示
             yAxisIndex: 0,
-            // barWidth:40,
             // barGap:'50%',
-            data: [
-              232,
-              646,
-              878,
-              554,
-              545,
-              344,
-              213,
-              653,
-              543,
-              234,
-              453,
-              674,
-              543,
-              234,
-              453,
-              674
-            ]
+            // 后端的数据
+            data: [],
+            itemStyle:{
+              normal:{
+                color:"#68B75C"
+              }
+            }
           },
           {
             name: "NG量",
             type: "bar",
             stack: "1",    //表示要堆叠显示
             yAxisIndex: 0,
-            data: [
-              23,
-              64,
-              87,
-              55,
-              54,
-              34,
-              21,
-              65,
-              53,
-              24,
-              43,
-              64,
-              55,
-              54,
-              34,
-              21
-            ] 
+            // barCategoryGap:5,
+            // barWidth:10,
+            // barMinWidth:20,
+            // barGap:10,
+            // 后端的数据
+            data: [], 
+            itemStyle:{
+              normal:{
+                color:"#F1B55D"
+              }
+            }
           },
           {
             name: "良率",
             type: "line",
             yAxisIndex: 1,
-            data: [
-              75,
-              39,
-              66,
-              83,
-              97,
-              91,
-              94,
-              99,
-              78,
-              84,
-              68,
-              42,
-              66,
-              83,
-              97,
-              91
-            ] 
+            // 后端的数据
+            data: [] 
           }
         ]
       }
     };
-  },
-  mounted() {
-    this.showChart(); 
   },
   methods: {
     showChart() {
       var myChart = this.$echarts.init(document.getElementById("bar"));
       myChart.setOption(this.options);
     }
+  },
+  watch:{
+    barData(){
+      this.options.xAxis[0].data = []
+      this.options.series[0].data = []
+      this.options.series[1].data = []
+      this.options.series[2].data = []
+      for(let i=0;i<this.barData.length;i++){
+        let item = this.barData[i]
+        this.options.xAxis[0].data.push(item.LineName)
+        this.options.series[0].data.push(item.OK)
+        this.options.series[1].data.push(item.NG)
+        this.options.series[2].data.push(item.OKRate)
+      }
+      this.showChart();
+    }
+  },
+  computed:{
+    // a(){
+    //   this.options.xAxis.data = []
+    //   this.options.series[0].data = []
+    //   this.options.series[1].data = []
+    //   this.options.series[2].data = []
+    //   for(let i=0;i<this.barData.length;i++){
+    //     let item = this.barData[i]
+    //     this.options.xAxis.data.push(item.LineName)
+    //     this.options.series[0].data.push(item.OK)
+    //     this.options.series[1].data.push(item.NG)
+    //     this.options.series[2].data.push(item.OKRate)
+    //   }
+    // }
   }
 };
 </script>
 <style lang="stylus" scoped>
-#bar {
-  height: 300px;
-  width: 100%;
-  margin-top: 20px;
-}
+#bar 
+  height: 300px
+  width: 100%
+  margin-top: 20px
 </style>

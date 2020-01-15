@@ -14,17 +14,18 @@
                 </ul>
                 <van-button block type="info" @click="onConfirm">确认</van-button>
             </van-dropdown-item> -->
-            <van-dropdown-item class="bgcolor" v-model="value" :options="option" />
+            <van-dropdown-item class="bgcolor" v-model="value" :options="options" @change='selectedItem'/>
         </van-dropdown-menu>
     </div>
 </template>
 <script>
 export default {
     name:'Choose',
+    props:['softwareAndVersion'],
     data() {
         return {
             // show:false,
-            value: 0,
+            value: '',
             option: [
                 { text: 'EDC V1.1.1.0', value: 0 },
                 { text: 'PPC V1.1.1.0', value: 1 },
@@ -44,7 +45,27 @@ export default {
             ]
         }
     },
+    computed:{
+        options(){
+            let arr = [];
+            if(this.softwareAndVersion.length == 0){
+                return arr
+            }
+            for(let i =0;i<this.softwareAndVersion.length;i++){
+                let currentItem = this.softwareAndVersion[i]
+                arr.push({
+                    text:currentItem.SOFTWARENAME+" -- "+currentItem.VERSIONNUM,
+                    value:currentItem.SOFTWAREID
+                })
+            }
+            this.value = this.softwareAndVersion[0].SOFTWAREID
+            return arr
+        }
+    },
     methods:{
+        selectedItem(e){
+            this.$emit('changeSoftware',e)
+        }
         // showPop(){
         //     this.show = true
         // },
@@ -55,15 +76,16 @@ export default {
 }
 </script>
 <style lang="stylus" scoped>
-.select >>> .van-cell 
-    background-color: #eee;
-.select
-    width 35%;
-    padding 0 2% 
-    max-width 35%
-    height 32px
-    line-height 32px
-    box-sizing border-box
-    border-radius 999px
-    border 1px solid #eee
+.select-box
+    .select >>> .van-cell 
+        background-color: #eee;
+    .select
+        width 45%;
+        padding 0 2% 
+        max-width 50%
+        height 32px
+        line-height 32px
+        box-sizing border-box
+        border-radius 999px
+        border 1px solid #eee
 </style>

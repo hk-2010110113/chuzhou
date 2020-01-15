@@ -10,5 +10,6 @@ require('echarts/lib/chart/pie');
 // 引入提示框和标题组件
 require('echarts/lib/component/tooltip');
 require('echarts/lib/component/title');
+require("echarts/lib/component/dataZoom");
 Vue.prototype.$echarts = echarts
 

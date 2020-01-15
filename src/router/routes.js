@@ -2,7 +2,8 @@ const productcapacity = () =>import('@/pages/productcapacity/ProductCapacity')
 const version = () => import('@/pages/version/Version')
 const changerecord = () => import('@/pages/changerecord/ChangeRecord')
 const alarm = () => import('@/pages/alarm/Alarm')
-const recorddetail = () =>import('@/pages/changerecord/components/RecordDetail')
+const recorddetail = () =>import('@/pages/changerecord/components/recorddetail')
+const login = () => import('@/pages/login/login')
 const routes = [
     //产能监控，主页
     {
@@ -59,6 +60,11 @@ const routes = [
             x:0,
             y:0
         }
+    },
+    {
+        path:'/login',
+        name:'Login',
+        component:login
     }
 ]
 export default routes

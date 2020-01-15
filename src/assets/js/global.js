@@ -1,3 +1,4 @@
+import BScroll from '@better-scroll/core'
 const formateTime = (num)=>{
     var date1 = new Date();
        //今天时间
@@ -25,8 +26,26 @@ const getYearMonthDay =(startTime)=>{
     return selectedStartTime
 }
 
+// better-scroll的使用
+const Bsscrolls =(that,className)=>{
+    that.$nextTick(()=>{
+        that.bs = new BScroll("."+className,{
+            click:true,
+            taps: true,
+        })
+    })
+} 
+
+const refreshBs = (that)=>{
+    that.$nextTick(()=>{
+        that.bs.refresh()
+    }) 
+}
+
 export default {
     formateTime,
-    getYearMonthDay
+    getYearMonthDay,
+    Bsscrolls,
+    refreshBs
 }
 
