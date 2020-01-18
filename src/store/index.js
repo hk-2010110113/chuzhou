@@ -6,11 +6,15 @@ export default () => {
         state: {
             title: '产能监控',
             ifBottomTabShow: false,
-            showicon:false
+            showicon:false,
+            ifshowTabsAndBar:false
         },
         mutations: {
             increment(state, title) {
                 state.title = title
+            },
+            changeshowTabsAndBar(state){
+                state.ifshowTabsAndBar = true
             },
             changeBarStatus(state){
                 state.ifBottomTabShow = !state.ifBottomTabShow

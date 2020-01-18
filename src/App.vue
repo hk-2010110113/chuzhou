@@ -1,13 +1,13 @@
 <template>
   <div id="app">
     <!-- 下面是页面的头部 -->
-    <fixed-head :showicon="showicon" :title="title"></fixed-head>
+    <fixed-head :showicon="showicon" :title="title" v-if="ifshowTabsAndBars"></fixed-head>
     <!-- 下面是中间显示区域 -->
     <keep-alive>
       <router-view></router-view>
     </keep-alive>
     <!-- 下面是页面底部的tabs -->
-    <bottom-tabs :class="{leave:ifLeave}"></bottom-tabs>
+    <bottom-tabs :class="{leave:ifLeave}" v-if="ifshowTabsAndBars"></bottom-tabs>
   </div>
 </template>
 
@@ -34,8 +34,11 @@ export default {
     },
     showicon(){
        return this.$store.state.showicon
+    },
+    ifshowTabsAndBars(){
+      return this.$store.state.ifshowTabsAndBar
     }
-  }
+  },
 };
 </script>
 <style lang="stylus" scoped>

@@ -13,7 +13,6 @@ export default {
   // post: function (url = "", data = {}, config) {
   //   return axios.post(url, data, config);
   // },
-
   postbyquery: function (url = "", querydata = {}, data = {}, config) {
     // if (JSON.stringify(querydata) == "{}") { //空对象
     //   return axios.post(url, data, config);
